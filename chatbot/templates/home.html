@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+{% if dpregunta %}
+
+<br/><strong>  Pregunta: {{dpregunta}} <br/></strong>
+
+{% endif %}
+
+<br />
+<div class="card">
+    <div class="card-header">
+        Respuesta CHAT BOT
+    </div>
+    <div class="card-body">
+
+        {% if dresponse %}
+        <p class="card-text">{{dresponse}}</p>
+        {% endif %}
+
+    </div>
+</div>
+
+<br /><br />
+
+<form method="POST" action="{% url 'home' %}">
+    {% csrf_token %}
+
+    <div class="mb-3">
+        <input type="text" class="form-control" placeholder="Escribe tu pregunta" name="pregunta">
+
+    </div>
+
+    <button type="submit" class="btn btn-secondary">Enviar Pregunta</button>
+</form>
+
+{% endblock %}
+```
